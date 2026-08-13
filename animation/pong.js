@@ -8,6 +8,7 @@
   var paddleHeight = 60;
   var ballSize = 8;
   var ballSpeed = 3.2;
+  var bounceNoise = 0.6; // small random wobble added to the bounce angle
 
   var pageW, pageH, paddleMaxSpeed;
   var leftPaddle, rightPaddle, ball;
@@ -108,7 +109,8 @@
         ball.x = leftFace;
         ball.vx = Math.abs(ball.vx);
         var hit = (ball.y + ballSize / 2 - (leftPaddle.y + paddleHeight / 2)) / (paddleHeight / 2);
-        ball.vy = hit * ballSpeed;
+        var noise = (Math.random() * 2 - 1) * bounceNoise;
+        ball.vy = clamp(hit * ballSpeed + noise, -ballSpeed, ballSpeed);
       } else {
         scoreRight++;
         updateScore();
@@ -122,7 +124,8 @@
         ball.x = rightFace - ballSize;
         ball.vx = -Math.abs(ball.vx);
         var hit2 = (ball.y + ballSize / 2 - (rightPaddle.y + paddleHeight / 2)) / (paddleHeight / 2);
-        ball.vy = hit2 * ballSpeed;
+        var noise2 = (Math.random() * 2 - 1) * bounceNoise;
+        ball.vy = clamp(hit2 * ballSpeed + noise2, -ballSpeed, ballSpeed);
       } else {
         scoreLeft++;
         updateScore();
