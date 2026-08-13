@@ -8,7 +8,7 @@
   var paddleHeight = 60;
   var ballSize = 8;
   var ballSpeed = 3.2;
-  var bounceNoise = 2.0; // small random wobble added to the bounce angle
+  var bounceNoise = 2.5; // random wobble added to the bounce angle
 
   var pageW, pageH, paddleMaxSpeed;
   var leftPaddle, rightPaddle, ball;
@@ -63,12 +63,12 @@
   rightPaddle = { x: pageW - margin - paddleInset - paddleWidth, y: pageH / 2 - paddleHeight / 2 };
 
   function serve(towardRight) {
-    var angle = (Math.random() * 0.6 - 0.3); // slight vertical variation
+    var vy = clamp((Math.random() * 2 - 1) * bounceNoise, -ballSpeed, ballSpeed);
     ball = {
       x: pageW / 2 - ballSize / 2,
       y: pageH / 2 - ballSize / 2,
       vx: (towardRight ? 1 : -1) * ballSpeed,
-      vy: angle * ballSpeed
+      vy: vy
     };
   }
   serve(Math.random() < 0.5);
