@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Site</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>Soufiane Ouahi</h1>
+    <p>Engineer · PhD candidate, IGBMC — Strasbourg, France</p>
+  </header>
+
+  <nav>
+    <button class="active" data-tab="home">Home</button>
+    <button data-tab="blog">Blog</button>
+  </nav>
+
+  <div id="home" class="tab active">
+    <h2>Who am I</h2>
+    <p>
+      Write a short bio here.
+    </p>
+
+    <h2>Projects</h2>
+    <article>
+      <h3>Project name</h3>
+      <p class="meta">Status, affiliation</p>
+      <p>
+        Describe the project here.
+      </p>
+    </article>
+  </div>
+
+  <div id="blog" class="tab">
+    <h2>Blog</h2>
+
+    <ul class="post-list">
+      <li><a href="posts/2026_08_13_hello_world.html">Hello world</a><span class="date">Aug 13, 2026</span></li>
+    </ul>
+  </div>
+
+  <footer>
+    <a href="https://www.linkedin.com/in/soufiane-ouahi/">LinkedIn</a> ·
+    <a href="https://github.com/soufianeouahi/">GitHub</a>
+  </footer>
+
+</div>
+
+<script>
+  function showTab(name) {
+    document.querySelectorAll('nav button').forEach(function (b) { b.classList.remove('active'); });
+    document.querySelectorAll('.tab').forEach(function (t) { t.classList.remove('active'); });
+    document.querySelector('nav button[data-tab="' + name + '"]').classList.add('active');
+    document.getElementById(name).classList.add('active');
+  }
+
+  document.querySelectorAll('nav button').forEach(function (btn) {
+    btn.addEventListener('click', function () { showTab(btn.dataset.tab); });
+  });
+
+  if (window.location.hash === '#blog') {
+    showTab('blog');
+  }
+</script>
+
+<script>
+  // Home and Blog have different amounts of content, so the page's total
+  // height used to change every time you switched tabs — which made any
+  // running background animation (sized to the page) visibly reset or
+  // glitch. Pin both tabs to the taller of the two so the page height
+  // never changes on tab switch, only the visible content does.
+  (function () {
+    var home = document.getElementById('home');
+    var blog = document.getElementById('blog');
+
+    function naturalHeight(el) {
+      if (el.classList.contains('active')) return el.offsetHeight;
+      var d = el.style.display, p = el.style.position, v = el.style.visibility;
+      el.style.position = 'absolute';
+      el.style.visibility = 'hidden';
+      el.style.display = 'block';
+      var h = el.offsetHeight;
+      el.style.display = d;
+      el.style.position = p;
+      el.style.visibility = v;
+      return h;
+    }
+
+    var maxHeight = Math.max(naturalHeight(home), naturalHeight(blog));
+    home.style.minHeight = maxHeight + 'px';
+    blog.style.minHeight = maxHeight + 'px';
+  })();
+</script>
+
+<script>
+  // Load one random animation from the animation/ folder on each page view.
+  var animations = ['snake.js', 'boids.js', 'pong.js'];
+  var choice = animations[Math.floor(Math.random() * animations.length)];
+  var s = document.createElement('script');
+  s.src = 'animation/' + choice;
+  document.body.appendChild(s);
+</script>
+
+</body>
+</html>

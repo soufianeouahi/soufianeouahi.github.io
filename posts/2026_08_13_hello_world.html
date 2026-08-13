@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hello world — Soufiane Ouahi</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+</head>
+<body>
+
+<div class="container">
+
+  <a class="back" href="../index.html#blog">← Back to blog</a>
+
+  <article>
+    <h1>Hello world</h1>
+    <p class="meta">August 13, 2026</p>
+
+    <p>
+      This is a placeholder post. Each post is a plain HTML file in the
+      <code>posts</code> folder, styled the same way as the rest of the
+      site — duplicate <code>TEMPLATE.html</code> to start a new one.
+    </p>
+
+    <p>Example of a code block, with the copy button included automatically:</p>
+    <pre><code>def hello():
+    print("hello world")</code></pre>
+
+    <p>Write whatever you like here.</p>
+  </article>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false }
+      ]
+    });
+  });
+</script>
+<script src="../copy-code.js"></script>
+
+</body>
+</html>
