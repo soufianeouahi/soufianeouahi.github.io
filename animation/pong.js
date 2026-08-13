@@ -8,7 +8,7 @@
   var paddleHeight = 60;
   var ballSize = 8;
   var ballSpeed = 3.2;
-  var bounceNoise = 0.6; // small random wobble added to the bounce angle
+  var bounceNoise = 2.0; // small random wobble added to the bounce angle
 
   var pageW, pageH, paddleMaxSpeed;
   var leftPaddle, rightPaddle, ball;
