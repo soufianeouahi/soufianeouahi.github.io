@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Post title — Soufiane Ouahi</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+</head>
+<body>
+
+<div class="container">
+
+  <a class="back" href="../index.html#blog">← Back to blog</a>
+
+  <article>
+    <h1>Post title</h1>
+    <p class="meta">Month Day, Year</p>
+
+    <p>Write your post here. Inline math like $E=mc^2$ and display math like $$\int_0^1 x\,dx = \tfrac12$$ render automatically.</p>
+
+    <pre><code>// code blocks get a Copy button automatically
+function example() {
+  return true;
+}</code></pre>
+  </article>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false }
+      ]
+    });
+  });
+</script>
+<script src="../copy-code.js"></script>
+
+</body>
+</html>
